@@ -1,4 +1,4 @@
-# Read and Write from the Firebase Realtime Database
+# Render Data from your Firebase Realtime Database
 
 Easily Render Firebase Realtime Database in your react(-native) app.
 
@@ -9,8 +9,8 @@ React Firebase Database provides the following components :
 
 ### Usage
 
-Change PROJECT_NAME to your project name and grab your firebase config here :
-https://console.firebase.google.com/project/PROJECT_NAME/settings/general/
+1. Change PROJECT_NAME to your project name and grab your firebase config here :
+   https://console.firebase.google.com/project/PROJECT_NAME/settings/general/
 
 ```javascript
 // Firebase Config
@@ -25,7 +25,7 @@ const config = {
 };
 ```
 
-Place a `FirebaseDatabaseProvider` Component anywhere in your component tree as an ancestor to your `FirebaseDatabaseNode` pass to it your firebase config.
+2. Place a `FirebaseDatabaseProvider` Component anywhere in your component tree as an ancestor to your `FirebaseDatabaseNode` pass to it your firebase config.
 
 ```javascript
 import firebase from "firebase/app";
