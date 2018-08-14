@@ -29,22 +29,11 @@ const config = {
 
 ```javascript
 import firebase from "firebase/app";
-import "firebase/auth";
+import "firebase/database";
 import {
   FirebaseDatabaseProvider,
   FirebaseDataNode
 } from "react-firebase-database";
-
-const config = {
-  apiKey: "API_KEY",
-  projectId: "PROJECT_ID",
-  databaseURL: "DATABASE_URL",
-
-  // optional
-  authDomain: "AUTH_DOMAIN",
-  storageBucket: "STORAGE_BUCKET",
-  messagingSenderId: "MESSAGING_SENDER_ID"
-};
 
 const MyApp = () => {
   return (
