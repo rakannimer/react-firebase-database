@@ -1,5 +1,6 @@
 .cache
 .rpt2_cache
+.vscode
 dist
 node_modules
 tmp-demo-dir
