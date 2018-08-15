@@ -21,12 +21,15 @@ export interface InitializeAppArgs {
   storageBucket?: string;
 }
 
+export type FirebaseDatabaseNodeLoadingStatus = "loading" | "ready" | "error";
+
 export type FirebaseDatabaseNodeValue = {} | number | boolean | string | null;
 
 export type FirebaseDatabaseProviderState = {
   firebase: any;
   dataTree: {
     [path: string]: {
+      loadingStatus: FirebaseDatabaseNodeLoadingStatus;
       value: FirebaseDatabaseNodeValue;
       unsub: () => void;
     };

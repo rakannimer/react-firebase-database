@@ -25,7 +25,10 @@ export class FirebaseDatabaseNode extends React.Component<FirebaseQuery> {
               />
               {renderAndAddProps(children, {
                 path,
-                data: context.dataTree[path]
+                data: context.dataTree[path],
+                loadingStatus: context.dataTree[path]
+                  ? context.dataTree[path].loadingStatus
+                  : "loading"
               })}
             </React.Fragment>
           );

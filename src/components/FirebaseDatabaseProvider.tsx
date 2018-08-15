@@ -13,11 +13,6 @@ import {
   FirebaseDatabaseProviderProps
 } from "../types";
 
-export const waitFor = (ms: number) =>
-  new Promise(resolve => {
-    setTimeout(resolve, ms);
-  });
-
 export const listenToRef = (ref: any) => {};
 
 export class FirebaseDatabaseProvider extends React.Component<
@@ -26,6 +21,7 @@ export class FirebaseDatabaseProvider extends React.Component<
 > {
   listenTo = async (firebaseQuery: FirebaseQuery) => {
     const { path } = firebaseQuery;
+
     if (path in this.state.dataTree) {
       return;
     }
@@ -34,12 +30,13 @@ export class FirebaseDatabaseProvider extends React.Component<
     );
     const unsub = ref.on("value", (d: FirebaseDatabaseNodeValueContainer) => {
       this.setState(state =>
-        actions.addPathToData(state, { path, data: d.val(), unsub })
+        actions.addPathToData(state, {
+          path,
+          data: d.val(),
+          unsub,
+          loadingStatus: "ready"
+        })
       );
-    });
-    this.setState(state => {
-      if (path in state.dataTree) return null;
-      return actions.addPathToData(state, { path, data: {}, unsub });
     });
   };
   stopListeningTo(path: string) {

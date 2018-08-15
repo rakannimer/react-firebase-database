@@ -20,19 +20,31 @@ const App = () => {
   return (
     <FirebaseDatabaseProvider {...config} firebase={firebase}>
       <div>hai</div>
-      <FirebaseDatabaseNode path="maximes/" limitToFirst={2}>
+      <FirebaseDatabaseNode path="maximes/" limitToFirst={1}>
         {d => {
-          return <ReactJson src={d} />;
+          return d.loadingStatus === "ready" ? (
+            <ReactJson src={d} />
+          ) : (
+            "Loading"
+          );
         }}
       </FirebaseDatabaseNode>
       <FirebaseDatabaseNode path="maximes/-L8m-aeCHQO7qtMVvUfM">
         {d => {
-          return <ReactJson src={d} />;
+          return d.loadingStatus === "ready" ? (
+            <ReactJson src={d} />
+          ) : (
+            "Loading"
+          );
         }}
       </FirebaseDatabaseNode>
       <FirebaseDatabaseNode path="maximes/-L8m-aeCHQO7qtMVvUfMa">
         {d => {
-          return <ReactJson src={d} />;
+          return d.loadingStatus === "ready" ? (
+            <ReactJson src={d} />
+          ) : (
+            "Loading"
+          );
         }}
       </FirebaseDatabaseNode>
     </FirebaseDatabaseProvider>
