@@ -13,8 +13,6 @@ import {
   FirebaseDatabaseProviderProps
 } from "../types";
 
-export const listenToRef = (ref: any) => {};
-
 export class FirebaseDatabaseProvider extends React.Component<
   FirebaseDatabaseProviderProps,
   FirebaseDatabaseProviderState
@@ -29,6 +27,8 @@ export class FirebaseDatabaseProvider extends React.Component<
       Object.assign({}, firebaseQuery, { firebase: this.state.firebase })
     );
     const unsub = ref.on("value", (d: FirebaseDatabaseNodeValueContainer) => {
+      if (d === null || typeof d === "undefined") return;
+
       this.setState(state =>
         actions.addPathToData(state, {
           path,
